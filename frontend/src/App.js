@@ -6,9 +6,10 @@ import {useState, useEffect} from 'react'
 function App() {
     let [posts, setPosts] = useState([]); 
     const [postcontents, setPostContents] = useState('');
+    //const [numlikes, setNumLikes] = useState(0);
     const URL = "http://localhost:8080"
 
-    const getFeed = () => {
+    function getFeed () {
         axios.get(URL + "/feed") // this is making a request to the backend
         .then(response => {
           setPosts(response.data); //setting post variable equal to what we get from backend
@@ -18,7 +19,7 @@ function App() {
 
     useEffect(() => { // this is ensuring getFeed is only called one time, and only when intially loading.
       getFeed();
-    }, [posts]); //made dependency array empty since we want to load the posts once  
+    }, [posts]); //calling getFeed whenever posts is changed (aka user adds another post) 
 
     function addPost (){
 
@@ -38,6 +39,16 @@ function App() {
        setPostContents('');
 
     }
+
+    // function addLike (){
+    //   axios.put(URL + '/feed/like/:_id')
+    //   .then(response => {
+    //     setNumLikes(response.data.num_likes);
+    //   })
+    //   .catch(console.error)
+    // }
+
+
    
   return (
     <div >
@@ -52,6 +63,10 @@ function App() {
         <button onClick = {() => {addPost()}} > Post </button>
 
       </div>
+
+      {/* <div> 
+        <button onClick = {() => {addLike()}} > Like </button>
+      </div> */}
       {posts.map((post, i) =>
         <div key = {i} > 
           <h3> {post.user} </h3>
