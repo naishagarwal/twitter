@@ -1,0 +1,25 @@
+.feedPost {
+    text-align: left;
+}
+
+.feedPost h4 {
+    margin-bottom: 0.6rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.text{
+    position: relative;
+    background-color: #fff;
+    color: black;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    justify-content: space-between;
+    padding: 1.5rem;
+    width: 100%;
+}

@@ -1,7 +1,9 @@
 
-import './App.css';
+import './styles/globals.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
+import FeedPost from './components/FeedPost.js'
+import './styles/feedpost.css'
 
 function App() {
     let [posts, setPosts] = useState([]); 
@@ -40,18 +42,20 @@ function App() {
 
     }
 
-    // function addLike (){
-    //   axios.put(URL + '/feed/like/:_id')
-    //   .then(response => {
-    //     setNumLikes(response.data.num_likes);
-    //   })
-    //   .catch(console.error)
-    // }
+    async function incrementLike (id){
+      axios.put(URL + '/feed/like/' + id)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    }
 
 
    
   return (
-    <div >
+    <div>
       <div> 
         <input
           type = 'text'
@@ -63,20 +67,21 @@ function App() {
         <button onClick = {() => {addPost()}} > Post </button>
 
       </div>
-
-      {/* <div> 
-        <button onClick = {() => {addLike()}} > Like </button>
-      </div> */}
-      {posts.map((post, i) =>
-        <div key = {i} > 
-          <h3> {post.user} </h3>
-          <p> {post.content} </p>
-          <p> {post.num_likes} {post.timestamp} </p>
-        </div>
-        
-      )}
+      {posts.map((post, i) => 
+        <div key = {i}>
+        <FeedPost> 
+            {/* key = {post._id} */}
+            content = {post.content}
+            user = {post.user}
+            timestamp = {post.timestamp}
+            {/* likes = {post.num_likes} */}
+            {/* incrementLike = {incrementLike} */}
+            {/* id = {post._id} */}
+          </FeedPost>
+          </div>
+      ) }
     </div>
   );
-}
+      }
 
-export default App;
+  export default App;
