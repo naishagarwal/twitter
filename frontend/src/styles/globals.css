@@ -1,0 +1,39 @@
+:root{
+  --primary: #c960ff;
+  --alt-one: #c137d8;
+  --dark: #3e2961;
+  --accent: #ff477e;
+  --grad-begin: #bd00ff;
+  --grad-end: #ff5f96;
+}
+
+.App {
+  margin: 1rem 5rem;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding-bottom: 1rem;
+
+}
+
+body{
+  background-color: var(--dark);
+  color: white;
+  height: 100%;
+}
+
+html{
+  height: 100%;
+}
+
+.button{
+  padding: 0.7rem 5rem;
+  background-image: linear-gradient(
+    to right,
+    var(--grad-begin),
+    var(--grad-end)
+  );
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
