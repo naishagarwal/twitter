@@ -1,10 +1,10 @@
 
-import './styles/globals.css';
+import '../styles/globals.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
 import FeedPost from '../components/FeedPost.js'
 import UserPost from '../components/UserPost.js'
-import './styles/feedpost.css'
+import '../styles/feedpost.css'
 
 function FeedPage() {
     let [posts, setPosts] = useState([]); 
@@ -56,17 +56,6 @@ function FeedPage() {
   return (
     <div>
       <UserPost newPost = {postcontents} setNewPost = {setPostContents} addPost = {addPost}></UserPost>
-      <div> 
-        {/* <input
-          type = 'text'
-          value ={postcontents}
-          placeholder = 'message here!'
-          onChange = {(e) => setPostContents(e.target.value)}
-        /> 
-
-        <button onClick = {() => {addPost()}} > Post </button> */}
-
-      </div>
       {posts.map((post, i) => 
         <div key = {i}>
         <FeedPost
@@ -75,7 +64,7 @@ function FeedPage() {
             timestamp = {post.timestamp}
           />
           </div>
-      ).reverse() }
+      ).reverse() } 
     </div>
   );
       }

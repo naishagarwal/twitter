@@ -1,17 +1,7 @@
- import React from "react";
- import {Route, Routes} from "react-router-dom"
- import ProfilePage from "./ProfilePage"
- import FeedPage from "./FeedPage";
+import React from "react";
 
- function App(){
-    return(
-        <div className = "main">
-            <Routes>
-                <Route index element = {<FeedPage/>}/>
-                <Route path = '/feed' element = {<ProfilePage/>}/>
-            </Routes>
-        </div>
-    )
- }
+function ProfilePage(){
+    <p> Hello </p>
+}
 
- export default App;
+export default ProfilePage;
