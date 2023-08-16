@@ -1,10 +1,10 @@
 import React from "react";
 
-function FeedPost(
+function FeedPost({
     user,
     content,
     timestamp
-){
+}){
     return(
         <div className = "feedPost"> 
             <h3> {user} </h3>

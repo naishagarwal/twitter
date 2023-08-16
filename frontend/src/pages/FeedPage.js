@@ -2,10 +2,11 @@
 import './styles/globals.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
-import FeedPost from './components/FeedPost.js'
+import FeedPost from '../components/FeedPost.js'
+import UserPost from '../components/UserPost.js'
 import './styles/feedpost.css'
 
-function App() {
+function FeedPage() {
     let [posts, setPosts] = useState([]); 
     const [postcontents, setPostContents] = useState('');
     //const [numlikes, setNumLikes] = useState(0);
@@ -51,37 +52,32 @@ function App() {
         console.log(error);
       });
     }
-
-
-   
+ 
   return (
     <div>
+      <UserPost newPost = {postcontents} setNewPost = {setPostContents} addPost = {addPost}></UserPost>
       <div> 
-        <input
+        {/* <input
           type = 'text'
           value ={postcontents}
           placeholder = 'message here!'
           onChange = {(e) => setPostContents(e.target.value)}
         /> 
 
-        <button onClick = {() => {addPost()}} > Post </button>
+        <button onClick = {() => {addPost()}} > Post </button> */}
 
       </div>
       {posts.map((post, i) => 
         <div key = {i}>
-        <FeedPost> 
-            {/* key = {post._id} */}
+        <FeedPost
             content = {post.content}
             user = {post.user}
             timestamp = {post.timestamp}
-            {/* likes = {post.num_likes} */}
-            {/* incrementLike = {incrementLike} */}
-            {/* id = {post._id} */}
-          </FeedPost>
+          />
           </div>
-      ) }
+      ).reverse() }
     </div>
   );
       }
 
-  export default App;
+  export default FeedPage;
