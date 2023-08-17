@@ -6,12 +6,12 @@ function UserPost({newPost, setNewPost, addPost}) {
             <input
                 type = 'text'
                 value ={newPost}
-                placeholder = 'message here!'
-                onChange = {(e) => setNewPost(e.target.value)}
-                className = "messageInput"
+                placeholder = 'seize the day!'
+                onChange = {(e) => setNewPost(e.target.value)} //automatically captures input when it changes
+                className = "messageInput" // for styling purposes
         /> 
-        <div className = 'button' onClick = {() => { addPost(); }} >
-            Post
+        <div className = 'button' onClick = {() => { addPost(); }} >  
+            Post 
         </div>
         </div>
 

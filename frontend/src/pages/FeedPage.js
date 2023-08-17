@@ -7,13 +7,16 @@ import UserPost from '../components/UserPost.js'
 import '../styles/feedpost.css'
 
 function FeedPage() {
-    let [posts, setPosts] = useState([]); 
+    let [posts, setPosts] = useState([]); //feed should update when posts changes
     const [postcontents, setPostContents] = useState('');
     //const [numlikes, setNumLikes] = useState(0);
     const URL = "http://localhost:8080"
 
     function getFeed () {
         axios.get(URL + "/feed") // this is making a request to the backend
+        // the /feed is part of one of the endpoints that is returning all posts
+        //this is frontend way of interacting with backend
+        //this returns a promise
         .then(response => {
           setPosts(response.data); //setting post variable equal to what we get from backend
         })

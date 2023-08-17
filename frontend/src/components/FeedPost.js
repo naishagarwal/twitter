@@ -1,4 +1,5 @@
 import React from "react";
+import Trash from '../img/Trash.png';
 
 function FeedPost({
     user,
